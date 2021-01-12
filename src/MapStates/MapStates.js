@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { VectorMap } from "react-jvectormap";
-import './Map.css'
+import './MapStates.css'
 
-function Map() {
+function MapStates() {
   const [statesStatistics, setStatesStatistics] = useState([]);
 
   const fetchStatistics = async () => {
@@ -14,13 +14,13 @@ function Map() {
 
   const showCasesOnHover = (event, tip, code) => {
     const currStateStatistic = statesStatistics.find(state => state.state === tip[0].innerText);
-    tip[0].innerHTML = `<div class="statistics">
+    tip.html(`<div class="statistics">
       <h4 class="state-name">${currStateStatistic.state}</h4>
       <p><strong>Cases:</strong> ${currStateStatistic.cases}</p>
       <p><strong>Recovered:</strong> ${currStateStatistic.recovered}</p>
       <p><strong>Deaths:</strong> ${currStateStatistic.deaths}</p>
       <p><strong>Active:</strong> ${currStateStatistic.active}</p>
-    </div>`;
+    </div>`);
   }
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Map() {
   }, []);
 
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: '92vh' }}>
       <VectorMap map={'us_aea'}
         backgroundColor="#40916c"
         containerStyle={{
@@ -42,4 +42,4 @@ function Map() {
   );
 }
 
-export default Map;
+export default MapStates;
