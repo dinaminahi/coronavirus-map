@@ -11,7 +11,7 @@ function Nav() {
 
   return (
     <nav className="navigation">
-            <Link style={navStyle} to="/">
+            <Link style={navStyle} to="/coronavirus-map">
             <h4>Coronavirus</h4>
                 </Link>
             <ul className="nav-links">
